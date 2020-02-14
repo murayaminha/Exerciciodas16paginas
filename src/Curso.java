@@ -11,7 +11,7 @@ public class Curso {
     private List<Aluno> alunosMatriculados;
 
 
-    public Curso(String nome, Integer codigoCurso,Integer qtdMaxAlunos) {
+    public Curso(String nome, Integer codigoCurso, Integer qtdMaxAlunos) {
         this.nome = nome;
         this.codigoCurso = codigoCurso;
         this.qtdMaxAlunos = qtdMaxAlunos;
