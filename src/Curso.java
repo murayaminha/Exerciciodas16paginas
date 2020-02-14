@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -7,7 +8,7 @@ public class Curso {
     private ProfessorAdjunto professorAdjunto;
     private ProfessorTitular professorTitular;
     private Integer qtdMaxAlunos;
-    private List alunosMatriculados;
+    private List<Aluno> alunosMatriculados;
 
 
     public Curso(String nome, Integer codigoCurso,Integer qtdMaxAlunos) {
@@ -15,7 +16,24 @@ public class Curso {
         this.codigoCurso = codigoCurso;
         this.qtdMaxAlunos = qtdMaxAlunos;
     }
+    public Boolean adicionarUmAluno(Aluno umAluno){
+        if(this.qtdMaxAlunos>alunosMatriculados.size()){
+            alunosMatriculados.add(umAluno);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    public void excluirAluno(Aluno umAluno){
+       for (int i = 0; i<alunosMatriculados.size();i++){
+           if(umAluno.equals(getAlunosMatriculados(i))){
+               alunosMatriculados.remove(i);
+           }
+           else System.out.println("Aluno não está matriculado!");
+       }
 
+    }
     public String getNome() {
         return nome;
     }
@@ -56,7 +74,7 @@ public class Curso {
         this.qtdMaxAlunos = qtdMaxAlunos;
     }
 
-    public List getAlunosMatriculados() {
+    public List getAlunosMatriculados(int i) {
         return alunosMatriculados;
     }
 
